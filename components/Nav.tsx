@@ -6,7 +6,7 @@ const Nav = () => {
         <nav>
             {navlinks.map((nav)=>(
                 <Link href={nav.link} key={nav.title}>
-                    <a className={`mr-5`}>{nav.title}</a>
+                    <a className={`mr-5 text-gray-600`}>{nav.title}</a>
                 </Link>
             ))}
         </nav>

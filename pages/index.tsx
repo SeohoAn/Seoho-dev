@@ -2,7 +2,11 @@ import Container from "../components/Container";
 import metadata from "../data/metadata";
 import RecentPosts from "../components/RecentPosts";
 
-const Home = () => {
+import { allPosts } from "contentlayer/generated";
+import {InferGetStaticPropsType} from "next";
+import {getStaticProps} from "./blog";
+
+const Home = ({posts}:InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <Container>
             <div className={`my-5 w-full`}>
@@ -25,10 +29,22 @@ const Home = () => {
             {metadata.info}
           </span>
                 </div>
-                <RecentPosts />
+                <RecentPosts posts={posts}/>
             </div>
         </Container>
     );
+};
+
+export const getStaticProps = async() => {
+    const posts = allPosts.sort(
+        (a,b) => Number(new Date(b.date)) - Number(new Date(a.date))
+    );
+
+    return{
+        props: {
+            posts,
+        },
+    };
 };
 
 export default Home;

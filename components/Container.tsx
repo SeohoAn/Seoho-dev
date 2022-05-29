@@ -2,7 +2,7 @@ import Head from "next/head";
 import Nav from "./Nav";
 import metadata from "../data/metadata";
 
-const Container = (props) => {
+const Container = (props : any) => {
     return (
         <div className={`w-full flex flex-col items-center p-3`}>
             <Head>
