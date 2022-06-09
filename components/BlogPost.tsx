@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+// @ts-ignore
 const BlogPost = ({ date, title, des, slug }) => {
     return (
         <Link href={`/blog/${slug}`} passHref>

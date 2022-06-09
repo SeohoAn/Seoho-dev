@@ -4,6 +4,7 @@ import RecentPosts from "../components/RecentPosts";
 
 import { allPosts } from "contentlayer/generated";
 import {InferGetStaticPropsType} from "next";
+// @ts-ignore
 import {getStaticProps} from "./blog";
 
 const Home = ({posts}:InferGetStaticPropsType<typeof getStaticProps>) => {
